@@ -1,0 +1,14 @@
+FB5 pre-layout vs post-layout simulation (VDD 3.3 V, tt, 27 C)
+pre  : digital/spice/fb5_osu_cells.sp (schematic, no AS/AD/PS/PD)
+post : magic ext2spice with R/C from validation/parasitics/netlists/
+bench: 3-stage chain, 20 fF load, average of 3 propagation delays
+====================================================================================================
+cell          R    C  sumC[fF]   pre[ps]  post[ps]     delta       %
+INVX1         3    8     15.54     70.26    104.19    +33.93   +48.3
+INVX2         3    8     15.26     59.35     88.82    +29.47   +49.7
+INVX4         7   13     18.41     55.65     80.42    +24.78   +44.5
+INVX8        16   21     29.95     53.52     90.36    +36.84   +68.8
+NAND2X1       6   15     20.09    102.71    137.64    +34.93   +34.0
+NOR2X1        6   15     18.89    116.47    151.79    +35.32   +30.3
+====================================================================================================
+POSTLAYOUT: PASS

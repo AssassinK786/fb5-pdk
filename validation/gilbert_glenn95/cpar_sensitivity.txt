@@ -1,0 +1,4 @@
+CPAR 100 fF R1 0: gain 10.28 dB BW 13.20 GHz
+CPAR 100 fF R1 13: gain 5.55 dB BW 18.03 GHz
+CPAR 300 fF R1 0: gain 10.27 dB BW 12.00 GHz
+CPAR 300 fF R1 13: gain 5.54 dB BW 14.10 GHz

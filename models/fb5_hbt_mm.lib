@@ -1,0 +1,15 @@
+* FB5 HBT mismatch wrappers (research PDK).
+* Source: M. M. Pratapgarhwala, MS thesis, Georgia Tech 2005, National BiCMOS8 SiGe (0.4 um emitter, 0.25 um-class BiCMOS):
+*   measured collector-current mismatch sigma(dIc/Ic) = A / sqrt(AE), A ~ 4 %.um (ideal region, VBE 0.6-0.75 V, 300 K, n=15 pairs).
+*   Mismatch improves with temperature (thesis ch. IV); 0.4x1.4 um^2 pairs showed extra gradient offset - prefer AE >= 2 um^2.
+* Implemented as an IS (area) shift: dIc/Ic = d(area)/area at fixed VBE.
+* params: ae = drawn emitter area in um^2 (sets sigma), nsig = offset in sigma (pass agauss(0,1,1) for Monte Carlo), a_mm = A-factor.
+.include fb5_hbt_vbic.lib
+.subckt npn_hp_mm c b e s ae=2.0 nsig=0 a_mm=0.04
+Q1 c b e s dt fb5npn_hp_v area={1 + nsig*a_mm/sqrt(ae)}
+Rdt dt 0 1e9
+.ends
+.subckt npn_hb_mm c b e s ae=2.0 nsig=0 a_mm=0.04
+Q1 c b e s dt fb5npn_hb_v area={1 + nsig*a_mm/sqrt(ae)}
+Rdt dt 0 1e9
+.ends

@@ -1,0 +1,15 @@
+Ronkainen L1 (Table 2 subckt) vs fb5_spiral pi model, Ronkainen stack (1 um Al 35 mohm/sq, 1.2 um oxide)
+before: kR 1, kC 1, Gs 1e-7 S/um2, Cs_sub 1e-5 fF/um2  (cost 15.00)
+after : kR 4.85, kC 0.337, Gs 6.06e-09 S/um2, Cs_sub 4.77e-18 fF/um2  (cost 0.108)
+f GHz | Ronkainen L nH  Q | before L  Q | after L  Q
+  0.1 |   6.25  0.09 |   7.23  0.45 |   6.84  0.09
+  0.2 |   6.25  0.18 |   7.24  0.89 |   7.03  0.18
+  0.5 |   6.26  0.45 |   7.30  2.00 |   7.13  0.46
+  1.0 |   6.30  0.89 |   7.29  2.74 |   7.17  0.91
+  1.5 |   6.37  1.32 |   7.14  2.64 |   7.21  1.35
+  2.0 |   6.46  1.74 |   6.91  2.32 |   7.27  1.76
+  3.0 |   6.74  2.49 |   6.28  1.73 |   7.43  2.48
+  4.0 |   7.18  3.11 |   5.51  1.32 |   7.66  3.03
+  5.0 |   7.83  3.54 |   4.69  1.03 |   7.98  3.39
+  6.0 |   8.81  3.75 |   3.89  0.82 |   8.41  3.57
+Qpeak (f, GHz, searched to 20 GHz): Ronkainen 3.76 @ 6.29; before 2.76 @ 1.12; after 3.59 @ 6.54

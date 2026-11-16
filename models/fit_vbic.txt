@@ -1,0 +1,38 @@
+  TF retuned 2.8p -> 2.45p
+== fb5npn_hp: AVC1=2 AVC2=13.9 (tuned for BVceo 3.3 V), RTH=3000 K/W CTH=1n (ESTIMATE)
+  GP   fT vs Ic (VCE 1.8 V): 0.3mA 37.0G, 0.7mA 45.3G, 1.0mA 46.7G, 1.5mA 45.6G, 3.0mA 35.1G, 6.0mA 19.0G
+  GP   peak fT 46.7 GHz (-0.7 % vs 47); beta @1mA 98
+  GP   Gummel (VCE 1 V): VBE 0.70 Ic 2.19e-06 B 107, VBE 0.80 Ic 9.64e-05 B 105, VBE 0.90 Ic 2.13e-03 B 87, VBE 1.00 Ic 8.87e-03 B 58
+  GP   BVceo (IB 1 uA, Ic=10x Ic@1V=105 uA): nan V; Ic(VCE): 1.0V 0.10mA, 2.0V 0.11mA, 3.0V 0.11mA, 3.3V 0.11mA, 4.0V 0.11mA, 5.0V 0.11mA, 5.5V 0.12mA, 6.0V 0.12mA, 7.0V 0.12mA
+  VBIC fT vs Ic (VCE 1.8 V): 0.3mA 34.5G, 0.7mA 44.2G, 1.0mA 46.5G, 1.5mA 47.0G, 3.0mA 39.7G, 6.0mA 24.7G
+  VBIC peak fT 47.0 GHz (-0.1 % vs 47); beta @1mA 102
+  VBIC Gummel (VCE 1 V): VBE 0.70 Ic 2.22e-06 B 109, VBE 0.80 Ic 1.00e-04 B 107, VBE 0.90 Ic 2.72e-03 B 92, VBE 1.00 Ic 1.31e-02 B 64
+  VBIC BVceo (IB 1 uA, Ic=10x Ic@1V=107 uA): 3.28 V; Ic(VCE): 1.0V 0.11mA, 2.0V 0.11mA, 3.0V 0.29mA, 3.3V 1.20mA, 4.0V 8.53mA, 5.0V 21.13mA, 5.5V 32.33mA, 6.0V 36.89mA, 7.0V 36.89mA
+
+  it 0: RBX+RBI 148.7 CJC 7.41f TF 3.716p -> rbb'(100uA) 123.9, peak fT 26.02, fMAX 37.72
+  it 1: RBX+RBI 150.5 CJC 3.99f TF 3.404p -> rbb'(100uA) 124.0, peak fT 31.40, fMAX 66.84
+  it 2: RBX+RBI 148.7 CJC 7.55f TF 3.906p -> rbb'(100uA) 124.0, peak fT 27.02, fMAX 45.18
+  it 3: RBX+RBI 149.5 CJC 6.04f TF 3.742p -> rbb'(100uA) 124.0, peak fT 28.43, fMAX 51.79
+  it 4: RBX+RBI 149.3 CJC 6.53f TF 3.811p -> rbb'(100uA) 124.0, peak fT 27.87, fMAX 49.33
+  it 5: RBX+RBI 149.4 CJC 6.34f TF 3.789p -> rbb'(100uA) 123.9, peak fT 28.06, fMAX 50.23
+  TF 3.72p -> 3.789p, CJC/CJEP -> 3.168f/3.168f, RBX/RBI -> 44.83/104.6
+== fb5npn_hb_v (VCE 1.8 V, 0.5x2.5 um unit emitter)
+   Ic mA   VBE   beta   fT GHz  fMAX GHz (f*sqrtU@10G / U=1)  rbb' ohm (h11 circle)
+    0.10 0.800  107.1    16.3     36.6 /   30.7             124.0
+    0.30 0.829  103.8    25.4     47.2 /   38.6             120.5
+    0.69 0.852   99.0    28.1     50.2 /   40.7             116.6
+    1.00 0.862   95.8    26.4     48.4 /   39.4             114.4
+    1.51 0.875   91.2    22.3     42.8 /   35.6             111.2
+    2.00 0.884   87.1    18.4     36.5 /   31.3             108.4
+    3.01 0.898   79.9    13.0     25.7 /   23.6             103.6
+  peak fT 28.1 GHz @ 0.69 mA; peak fMAX 50.2 GHz @ 0.69 mA; rbb'(100 uA) 124.0 ohm; beta(1 mA) 95.8
+== fb5npn_hb: AVC1=2 AVC2=21.7 (tuned for BVceo 5.5 V), RTH=3500 K/W CTH=1n (ESTIMATE)
+  GP   fT vs Ic (VCE 1.8 V): 0.3mA 26.0G, 0.7mA 27.6G, 1.0mA 25.3G, 1.5mA 20.5G, 3.0mA 11.0G, 6.0mA 5.8G
+  GP   peak fT 27.6 GHz (-1.5 % vs 28.0); beta @1mA 89
+  GP   Gummel (VCE 1 V): VBE 0.70 Ic 2.18e-06 B 107, VBE 0.80 Ic 9.54e-05 B 104, VBE 0.90 Ic 1.93e-03 B 76, VBE 1.00 Ic 7.04e-03 B 28
+  GP   BVceo (IB 1 uA, Ic=10x Ic@1V=104 uA): nan V; Ic(VCE): 1.0V 0.10mA, 2.0V 0.11mA, 3.0V 0.11mA, 3.3V 0.11mA, 4.0V 0.11mA, 5.0V 0.11mA, 5.5V 0.11mA, 6.0V 0.11mA, 7.0V 0.11mA
+  VBIC fT vs Ic (VCE 1.8 V): 0.3mA 25.4G, 0.7mA 28.1G, 1.0mA 26.5G, 1.5mA 22.3G, 3.0mA 13.0G, 6.0mA 6.8G
+  VBIC peak fT 28.1 GHz (+0.2 % vs 28.0); beta @1mA 96
+  VBIC Gummel (VCE 1 V): VBE 0.70 Ic 2.22e-06 B 109, VBE 0.80 Ic 9.95e-05 B 107, VBE 0.90 Ic 2.57e-03 B 83, VBE 1.00 Ic 7.31e-03 B 14
+  VBIC BVceo (IB 1 uA, Ic=10x Ic@1V=106 uA): 5.48 V; Ic(VCE): 1.0V 0.11mA, 2.0V 0.11mA, 3.0V 0.11mA, 3.3V 0.11mA, 4.0V 0.13mA, 5.0V 0.31mA, 5.5V 1.12mA, 6.0V 2.86mA, 7.0V 6.91mA
+

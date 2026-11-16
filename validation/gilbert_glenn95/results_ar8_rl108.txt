@@ -1,0 +1,17 @@
+FB5 Gilbert mixer vs Glenn et al. BCTM 1995 (RL = 108.0 ohm, tuned to JLG18 10.4 dB; RF pair 8 mA/side, quad 4 mA each)
+
+JLG16 (R1=13): gain vs RF frequency (GHz: dB) 0.4: 2.74, 1.0: 2.80, 2.0: 2.91, 3.0: 3.02, 4.0: 3.12, 5.0: 3.23, 6.0: 3.25, 8.0: 3.29, 10.0: 3.21, 12.0: 2.96, 14.0: 2.37, 16.0: 1.30, 20.0: -2.87, 25.0: -9.78, 30.0: -15.22
+JLG16: low-f gain 2.77 dB, -3 dB BW 17.47 GHz, GBW 24.0 GHz
+JLG16: VBIC hp_v gain at 1/5/10 GHz 2.93, 3.39, 3.34
+JLG16 LO 1.5 GHz: OIP3 8.2 / 7.7 dBm (Pin -25/-19 dBm/tone, IM3 slope 3.11), IP1dB -5.8 dBm, OP1dB -4.0 dBm
+JLG16 LO 5.0 GHz: OIP3 8.8 / 8.4 dBm (Pin -25/-19 dBm/tone, IM3 slope 3.10), IP1dB -5.5 dBm, OP1dB -3.2 dBm
+JLG16 LO 10.0 GHz: OIP3 7.2 / 6.8 dBm (Pin -25/-19 dBm/tone, IM3 slope 3.09), IP1dB -6.3 dBm, OP1dB -4.1 dBm
+JLG16: NF static (LO hard-switched) 15.1 dB -> SSB mixer estimate 19.0 dB (100 MHz)
+
+JLG18 (R1=0): gain vs RF frequency (GHz: dB) 0.4: 10.26, 1.0: 10.30, 2.0: 10.34, 3.0: 10.32, 4.0: 10.23, 5.0: 10.07, 6.0: 9.75, 8.0: 8.96, 10.0: 7.88, 12.0: 6.58, 14.0: 5.02, 16.0: 3.22, 20.0: -1.73, 25.0: -9.27, 30.0: -15.38
+JLG18: low-f gain 10.28 dB, -3 dB BW 10.92 GHz, GBW 35.7 GHz
+JLG18: VBIC hp_v gain at 1/5/10 GHz 10.53, 10.49, 8.62
+JLG18 LO 1.5 GHz: OIP3 4.4 / 3.4 dBm (Pin -25/-19 dBm/tone, IM3 slope 2.88), IP1dB -14.7 dBm, OP1dB -5.4 dBm
+JLG18 LO 5.0 GHz: OIP3 5.6 / 4.4 dBm (Pin -25/-19 dBm/tone, IM3 slope 3.07), IP1dB -13.7 dBm, OP1dB -4.6 dBm
+JLG18 LO 10.0 GHz: OIP3 6.4 / 5.6 dBm (Pin -25/-19 dBm/tone, IM3 slope 3.10), IP1dB -11.0 dBm, OP1dB -4.2 dBm
+JLG18: NF static (LO hard-switched) 12.1 dB -> SSB mixer estimate 16.1 dB (100 MHz)

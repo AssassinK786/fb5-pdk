@@ -1,0 +1,65 @@
+﻿# FB5 WAT / WET parameter table  (tab-separated; lines starting with # are comments)
+# This is the MOSIS "MOSIS PARAMETRIC TEST RESULTS" (WAT) layout: PROCESS PARAMETERS
+# (Sheet Resistance / Contact Resistance) + CAPACITANCE PARAMETERS (Area / Fringe /
+# Overlap), transcribed into a machine-readable form.
+#
+# Columns:
+#   key        magic extract rule this row feeds (or INFO if informational)
+#   wat_row    original WAT row name
+#   pair       conductor pair
+#   unit       physical WAT unit
+#   ami_c5     AMI/onsemi C5 0.5um WAT measured value (public MOSIS report, run V11L,
+#              plus the equivalent WPI/WAT handouts; same family as qflow osu050.par)
+#   ibm_5hp    IBM SiGe 5HP value; '-' = NO public measurement found
+#   status     MEASURED | DERIVED | PROXY | MISSING | INFO
+#   source     [1] 20 MOSIS IBM SIGE05 WET lots (via design manual section 1)
+#              [2] Dunn et al., IBM J. Res. & Dev. 47(2/3) 2003 Tables 4/6/7
+#              [3] IBM 5HP BEOL: 1.2 um SiO2 ILD (published geometry)
+#              [4] qflow osu050.par / SCN3ME_SUBM.30.tech (AMI C5 baseline)
+#              [5] public MOSIS WAT report AMIS/ON-SEMI SCN05 run V11L
+#   note
+#
+# !! IMPORTANT !!  The 20 IBM SIGE05 WET reports themselves are NOT bundled here and
+# are NOT publicly indexed (see RC_SOURCES.md section 6).  Every 'MISSING' row means
+# there is no 5HP measurement; fb5_5hp_rc.py currently fills those with a PROXY
+# scaling that is explicitly NOT a measurement.  Drop the real WAT numbers into
+# ibm_5hp + set status=MEASURED and re-run 'make check-parasitics' to replace them.
+#
+key	wat_row	pair	unit	ami_c5	ibm_5hp	status	source	note
+sheet_m1	Sheet Resistance	M1	ohm/sq	0.09	0.08	MEASURED	[1]	WET lot median; magic resist=mOhm/sq
+sheet_m2	Sheet Resistance	M2	ohm/sq	0.09	0.05	MEASURED	[1]	WET lot median
+sheet_m3	Sheet Resistance	M3	ohm/sq	0.06	0.04	MEASURED	[1]	WET lot median
+sheet_lm	Sheet Resistance	LM(2um Al)	ohm/sq	-	0.014	MEASURED	[2] T7	14 mOhm/sq; no 4th metal in qflow LEF
+sheet_ndiff	Sheet Resistance	N+ diffusion	ohm/sq	82.4	72	MEASURED	[2] T4	IBM process characterization
+sheet_ppoly	Sheet Resistance	P+ polysilicon	ohm/sq	22.3	-	INFO	[2] T4	IBM p+ poly RESISTOR 270 ohm/sq; magic rule is silicided GATE poly - different layer
+sheet_taN	Sheet Resistance	TaN BEOL metal	ohm/sq	142	142	MEASURED	[2] T4	IBM BEOL resistor
+contact_ndc	Contact Resistance	N+active-M1	ohm	58.7	-	MISSING	-	no public 5HP WAT; proxy = 72/82.4 of AMI
+contact_pdc	Contact Resistance	P+active-M1	ohm	141	-	MISSING	-	no 5HP p+ sheet R -> kept AMI
+contact_pc	Contact Resistance	poly-M1	ohm	15.8	-	MISSING	-	no 5HP gate-poly R -> kept AMI
+contact_p2c	Contact Resistance	poly2-M1	ohm	26.8	-	MISSING	-	kept AMI
+contact_m2c	Contact Resistance	via1 M1-M2	ohm	0.76	-	MISSING	-	no public 5HP WAT; proxy = 0.05/0.09 of AMI
+contact_m3c	Contact Resistance	via2 M2-M3	ohm	0.73	-	MISSING	-	no public 5HP WAT; proxy = 0.04/0.06 of AMI
+area_m1sub	Area (substrate)	M1-sub	aF/um2	31	28.8	DERIVED	[3]+[2]	1.2um plate 0.0288 fF/um2; IBM Table 4 measured BEOL 0.03 fF/um2 validates
+area_m2sub	Area (substrate)	M2-sub	aF/um2	16	14.4	DERIVED	[3]	2.4um plate
+area_m3sub	Area (substrate)	M3-sub	aF/um2	10	9.6	DERIVED	[3]	3.6um plate
+area_m2m1	Area (metal1)	M2-M1	aF/um2	30	28.8	DERIVED	[3]	1.2um plate (interlevel)
+area_m3m1	Area (metal1)	M3-M1	aF/um2	12	-	MISSING	-	no 5HP WAT; kept AMI
+area_m3m2	Area (metal2)	M3-M2	aF/um2	36	-	MISSING	-	no 5HP WAT; kept AMI
+area_polysub	Area (substrate)	poly-sub	aF/um2	88	-	MISSING	-	kept AMI
+area_ndiffsub	Area (substrate)	N+active-sub	aF/um2	423	1000	MEASURED	[2] T4	IBM 1.00 fF/um2; BSIM3 CJ handles devices so magic rule is commented out
+area_pdiffsub	Area (substrate)	P+active-sub	aF/um2	729	-	MISSING	-	BSIM3 CJ handles devices
+fringe_m1sub	Fringe (substrate)	M1-sub	aF/um	74	-	MISSING	-	no public 5HP fringe; proxy = AMI * area_m1sub ratio
+fringe_m2sub	Fringe (substrate)	M2-sub	aF/um	58	-	MISSING	-	no public 5HP fringe; proxy = AMI * area_m2sub ratio
+fringe_m3sub	Fringe (substrate)	M3-sub	aF/um	38	-	MISSING	-	no public 5HP fringe; proxy = AMI * area_m3sub ratio
+fringe_m1poly	Fringe (poly)	M1-poly	aF/um	60	-	MISSING	-	proxy = AMI * area_m1sub ratio
+fringe_m2poly	Fringe (poly)	M2-poly	aF/um	38	-	MISSING	-	proxy = AMI * area_m2sub ratio
+fringe_m3poly	Fringe (poly)	M3-poly	aF/um	28	-	MISSING	-	proxy = AMI * area_m3sub ratio
+fringe_m1m2	Fringe (metal1)	M1-M2	aF/um	50	-	MISSING	-	proxy = AMI * area_m2m1 ratio
+fringe_m1m3	Fringe (metal1)	M1-M3	aF/um	32	-	MISSING	-	proxy = AMI * area_m3sub ratio
+fringe_m2m3	Fringe (metal2)	M2-M3	aF/um	52	-	MISSING	-	proxy = AMI * area_m3sub ratio
+overlap_ndiff	Overlap (N+active)	gate-N+	aF/um	189	-	MISSING	-	BSIM3 handles; kept AMI
+overlap_pdiff	Overlap (P+active)	gate-P+	aF/um	229	-	MISSING	-	BSIM3 handles; kept AMI
+mim	MIM capacitance	MIM	fF/um2	-	0.7	MEASURED	[2] T6	5HP/AM/DM; PDK lot median 1.27 differs (stacked option, see RC_SOURCES.md)
+moscap	MOSCAP capacitance	MOSCAP	fF/um2	-	1.5	MEASURED	[2] T6	PDK decap 1.51 matches
+ild	ILD thickness	metal-metal	um	-	1.2	MEASURED	[3]	published IBM 5HP BEOL geometry
+pplus_poly_res	Sheet Resistance	P+ poly resistor	ohm/sq	-	270	MEASURED	[2] T4	IBM process characterization

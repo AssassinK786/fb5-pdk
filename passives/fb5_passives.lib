@@ -1,0 +1,37 @@
+* FB5 PDK (research PDK): passives of the IBM SiGe 5HP / 5AM class, values = median of 20 MOSIS IBM SIGE05 lots.
+* Use BOTH: .lib "fb5_passives.lib" devices  AND  one of res_typ / res_low / res_high (+-3 sigma lot spread).
+* 1-sigma: RP 3.2 %, RN 1.2 %, RI 8.1 %, silicided poly 15.6 %, N+ 5.7 %, P+ 2.6 %; MIM 20 % and NMOS varactor 27 % in the raw
+* reports (mixed test structures) -> 10 % used (ESTIMATE). Temperature coefficients are not in the reports: ESTIMATES.
+.lib res_typ
+.param rsh_rp=214.2 rsh_rn=20.2 rsh_ri=1592.7 rsh_poly=2.9 rsh_nd=4.5 rsh_pd=2.9 c_mim=1.267e-15 c_decap=1.5145e-15 c_nvar=1.382e-15
+.endl res_typ
+.lib res_low
+.param rsh_rp=193.64 rsh_rn=19.473 rsh_ri=1205.7 rsh_poly=1.5428 rsh_nd=3.7305 rsh_pd=2.6738 c_mim=8.869e-16 c_decap=1.4191e-15 c_nvar=9.674e-16
+.endl res_low
+.lib res_high
+.param rsh_rp=234.76 rsh_rn=20.927 rsh_ri=1979.7 rsh_poly=4.2572 rsh_nd=5.2695 rsh_pd=3.1262 c_mim=1.6471e-15 c_decap=1.6099e-15 c_nvar=1.7966e-15
+.endl res_high
+.lib devices
+* resistors: X<n> a b <type> w=<um> l=<um>
+.subckt rp a b w=2 l=20
+R1 a b {rsh_rp*l/w} tc1=-0.0010
+.ends
+.subckt rn a b w=2 l=20
+R1 a b {rsh_rn*l/w} tc1=0.0012
+.ends
+.subckt ri a b w=2 l=20
+R1 a b {rsh_ri*l/w} tc1=-0.0015
+.ends
+* MIM capacitor (top plate over metal2): w, l in um
+.subckt cmim top bot w=10 l=10
+C1 top bot {c_mim*w*l}
+.ends
+* thin-oxide decoupling capacitor
+.subckt cdecap top bot w=10 l=10
+C1 top bot {c_decap*w*l}
+.ends
+* NMOS accumulation varactor: value at 0 V; ~2.5:1 tuning range (ESTIMATE)
+.subckt cvar g sd w=10 l=10
+C1 g sd {c_nvar*w*l}
+.ends
+.endl devices

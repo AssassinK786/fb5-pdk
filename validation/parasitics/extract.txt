@@ -1,0 +1,42 @@
+FB5 post-layout extraction (magic 8.3.685, SCN3ME_SUBM.30.5hp.tech)
+source GDS : digital/gds/osu05_stdcells.gds2
+cells      : 32 (7 PAD* cells skipped: abstract-only, no GDS geometry)
+================================================================================================
+AND2X1       MOS  6  sum(C)    22.72 fF  max(R)    577.6 ohm  ports: Y B vdd gnd A
+AND2X2       MOS  6  sum(C)    22.98 fF  max(R)    524.1 ohm  ports: vdd gnd A B Y
+AOI21X1      MOS  6  sum(C)    25.49 fF  max(R)    576.1 ohm  ports: gnd vdd A B Y C
+AOI22X1      MOS  8  sum(C)    30.96 fF  max(R)    373.5 ohm  ports: gnd vdd C D Y A B
+BUFX2        MOS  4  sum(C)    16.38 fF  max(R)    472.0 ohm  ports: vdd gnd A Y
+BUFX4        MOS  6  sum(C)    20.87 fF  max(R)    408.8 ohm  ports: vdd gnd A Y
+CLKBUF1      MOS 16  sum(C)    38.76 fF  max(R)    379.1 ohm  ports: A vdd gnd Y
+CLKBUF2      MOS 24  sum(C)    51.29 fF  max(R)    379.1 ohm  ports: vdd gnd A Y
+CLKBUF3      MOS 32  sum(C)    63.57 fF  max(R)    379.1 ohm  ports: gnd vdd A Y
+DFFNEGX1     MOS 22  sum(C)    57.80 fF  max(R)    724.8 ohm  ports: CLK vdd D gnd Q
+DFFPOSX1     MOS 22  sum(C)    58.42 fF  max(R)    724.8 ohm  ports: vdd D gnd Q CLK
+DFFSR        MOS 32  sum(C)   103.92 fF  max(R)    810.2 ohm  ports: gnd vdd D S R Q CLK
+FAX1         MOS 28  sum(C)    87.61 fF  max(R)    512.9 ohm  ports: gnd vdd A B C YC YS
+HAX1         MOS 14  sum(C)    50.08 fF  max(R)    631.8 ohm  ports: vdd gnd YC A B YS
+INVX1        MOS  2  sum(C)    15.54 fF  max(R)    680.1 ohm  ports: A Y vdd gnd
+INVX2        MOS  2  sum(C)    15.26 fF  max(R)    457.2 ohm  ports: vdd gnd Y A
+INVX4        MOS  4  sum(C)    18.41 fF  max(R)    323.4 ohm  ports: vdd gnd Y A
+INVX8        MOS  8  sum(C)    29.95 fF  max(R)    323.4 ohm  ports: vdd gnd A Y
+LATCH        MOS 12  sum(C)    36.15 fF  max(R)    562.3 ohm  ports: D Q gnd vdd CLK
+MUX2X1       MOS 10  sum(C)    29.63 fF  max(R)    591.0 ohm  ports: S vdd gnd Y A B
+NAND2X1      MOS  4  sum(C)    20.09 fF  max(R)    568.6 ohm  ports: vdd Y gnd A B
+NAND3X1      MOS  6  sum(C)    25.30 fF  max(R)    468.3 ohm  ports: B vdd gnd A C Y
+NOR2X1       MOS  4  sum(C)    18.89 fF  max(R)    568.6 ohm  ports: vdd B gnd Y A
+NOR3X1       MOS  9  sum(C)    43.76 fF  max(R)    390.2 ohm  ports: vdd gnd B C A Y
+OAI21X1      MOS  6  sum(C)    25.57 fF  max(R)    535.2 ohm  ports: gnd vdd A B Y C
+OAI22X1      MOS  8  sum(C)    30.75 fF  max(R)    462.7 ohm  ports: gnd vdd D C A B Y
+OR2X1        MOS  6  sum(C)    21.61 fF  max(R)    568.6 ohm  ports: Y B vdd gnd A
+OR2X2        MOS  6  sum(C)    19.67 fF  max(R)    568.6 ohm  ports: Y B vdd gnd A
+TBUFX1       MOS  6  sum(C)    22.52 fF  max(R)    551.0 ohm  ports: vdd gnd EN A Y
+TBUFX2       MOS 10  sum(C)    38.49 fF  max(R)    323.4 ohm  ports: vdd gnd A EN Y
+XNOR2X1      MOS 12  sum(C)    32.83 fF  max(R)    451.9 ohm  ports: A B gnd vdd Y
+XOR2X1       MOS 12  sum(C)    30.69 fF  max(R)    473.8 ohm  ports: Y vdd B A gnd
+================================================================================================
+TOTAL: 32 cells, 353 MOSFETs, sum(C) 1125.9 fF
+Note: magic extresist element counts vary by +/-1 between runs for some
+      complex cells (DFFSR); total C and max R are stable, so the report
+      lists those physical quantities instead of raw element counts.
+EXTRACT: PASS

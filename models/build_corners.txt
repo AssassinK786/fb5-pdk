@@ -1,0 +1,13 @@
+typical T4AB card: N Vt 0.620 Idss 481 | P Vt 0.478 Idss 264 uA/um
+tt n: Vt 0.620 (tgt 0.620) Idss 481.0 (tgt 481.0) TOX 92.0 A
+tt p: Vt 0.478 (tgt 0.478) Idss 263.8 (tgt 263.8) TOX 92.0 A
+ff n: Vt 0.583 (tgt 0.584) Idss 523.3 (tgt 524.5) TOX 88.7 A
+ff p: Vt 0.439 (tgt 0.439) Idss 301.3 (tgt 302.2) TOX 88.7 A
+ss n: Vt 0.656 (tgt 0.656) Idss 438.6 (tgt 437.5) TOX 95.3 A
+ss p: Vt 0.518 (tgt 0.517) Idss 226.0 (tgt 225.4) TOX 95.3 A
+fs n: Vt 0.583 (tgt 0.584) Idss 523.0 (tgt 524.5) TOX 92.0 A
+fs p: Vt 0.518 (tgt 0.517) Idss 226.0 (tgt 225.4) TOX 92.0 A
+sf n: Vt 0.656 (tgt 0.656) Idss 438.2 (tgt 437.5) TOX 92.0 A
+sf p: Vt 0.439 (tgt 0.439) Idss 301.7 (tgt 302.2) TOX 92.0 A
+check: max relative deviation of fitted TOX/VTH0/U0 = 0.0009 % (ss/fb5p/VTH0 fit -0.54006 vs shipped -0.540065)
+check: PASS (fb5.lib unchanged)

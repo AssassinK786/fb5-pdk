@@ -1,0 +1,4 @@
+ECL ring (11 stages, 280 mV swing, Iee 0.3 mA, EF 0.15 mA): GP 18.7 ps/gate, VBIC 19.0 ps/gate  (IBM 5HP: 16 ps)
+ECL ring (11 stages, 280 mV swing, Iee 0.6 mA, EF 0.30 mA): GP 12.9 ps/gate, VBIC 12.8 ps/gate  (IBM 5HP: 16 ps)
+ECL ring (11 stages, 280 mV swing, Iee 1.0 mA, EF 0.50 mA): GP 10.9 ps/gate, VBIC 10.6 ps/gate  (IBM 5HP: 16 ps)
+ECL ring (11 stages, 280 mV swing, Iee 1.5 mA, EF 0.75 mA): GP 10.4 ps/gate, VBIC 9.9 ps/gate  (IBM 5HP: 16 ps)

@@ -1,0 +1,6 @@
+# third-party thesis PDF (copyright): cite, do not redistribute
+docs/*.pdf
+*.raw
+__pycache__/
+*.pyc
+validation/gilbert_glenn95/runs_*/

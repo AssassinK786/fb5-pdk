@@ -1,0 +1,32 @@
+# FB5 third-party notices and license status
+
+## License status
+
+The original FB5 work (model cards, fit and validation scripts, decks, documentation) is released under the
+**Apache License, Version 2.0** (see `LICENSE`). FB5 is a predictive research PDK, **not a foundry deliverable**:
+it is not an IBM product, is not endorsed by IBM, and is not suitable for fabrication.
+Third-party material listed below remains under its own terms.
+
+## Third-party assets
+
+FB5 bundles or derives from the following third-party / public material. Each
+remains under its own terms; this repository claims no ownership of them.
+
+| asset | origin | where used | note |
+|---|---|---|---|
+| BSIM3 card for lot T4AB (5AM_NI) and 20 IBM SIGE05 lot parametric reports | **MOSIS** (public lot reports) | `models/t4ab_raw.lib`, `models/fb5.lib`, `models/build_corners.py`, `passives/fb5_passives.lib` | public parametric data; cite, do not imply foundry endorsement |
+| IBM 5HP HBT figures of merit | **IBM** / IEEE papers by Dunn et al. (IBM J. R&D 2003), Bacon et al. (Microwave Journal 2002), Harame et al. (IEEE TED 2001), Glenn et al. (IEEE BCTM 1995) | `models/fb5_hbt*.lib`, `validation/`, `SOURCES.md` | cited as numbers only; no IBM design kit, models or rule decks are included; IBM trademarks belong to IBM |
+| MOSIS SCMOS rev 7.2 SUBM rules / qflow Magic tech `SCN3ME_SUBM.30.tech` | **MOSIS** / qflow (public) | `klayout/layers.txt`, `klayout/fb5.drc`, `klayout/fb5.lvs`, `klayout/pcells/` | public generic rules, NOT IBM 5HP rules |
+| OSU 0.5 um standard cells (GDS, Verilog, SPICE, liberty base) | **Oklahoma State University** / public OSU standard-cell distribution (qflow / osu05) | `digital/gds/osu05_stdcells.gds2`, `digital/verilog/osu05_stdcells.v`, `digital/spice/fb5_osu_cells.sp`, `digital/lib/*.lib` | re-characterized here; original cell copyright remains with its authors |
+| OSU050 LEF (tech + 40 MACROs), `osu050.par`, `SCN3ME_SUBM.30.tech` magic tech | **qflow** OSU050 technology directory (public MOSIS SCMOS rules) | `digital/lef/`, `validation/parasitics/SCN3ME_SUBM.30.tech`, `SCN3ME_SUBM.30.5hp.tech` (generated) | derived / vendored verbatim from `/usr/local/share/qflow/tech/osu050/`; refer to qflow's terms for the original files |
+| IBM 5HP measured R/C values (sheet R, passive R/C, MIM/MOSCAP density, BEOL geometry, last-metal R) | **IBM** / IEEE: Dunn et al., IBM J. Res. & Dev. 47(2/3) 2003 Tables 4/6/7; MOSIS IBM SIGE05 WET lot reports | `validation/parasitics/fb5_5hp_rc.py`, `RC_SOURCES.md` | cited as numbers only; the underlying WET reports are not redistributed |
+| MOSIS WAT table structure + AMI C5 measured R/C reference values | public MOSIS WAT reports for **other** processes: AMIS/ON-SEMI SCN05 run V11L, WPI 1.2/1.6 um MOSIS PARAMETRIC TEST RESULTS, 0.35 um CMOS-class MOSIS lot N88Y; first-hand 105-lot WAT statistics from the sibling `/grid/fp5-pdk` project | `validation/parasitics/wet_tables/fb5_wet.tsv`, `wet_tables/ami_c5_wat_reference.txt` | transcribed as table structure/reference; AMI C5 data, **not** 5HP; fringe/contact 5HP cells are blank (PROXY) |
+| spiral inductor pi model / Mohan L formula / Ronkainen 1997 data | IEE / IEEE published papers | `passives/inductor/` | cited only |
+| HBT mismatch data | M. M. Pratapgarhwala, MS thesis, Georgia Tech 2005 (National BiCMOS8 SiGe) | `models/fb5_hbt_mm.lib` | borrowed from another process; thesis PDF is gitignored and must not be redistributed |
+| BCTM 1995 mixer paper | IEEE BCTM 1995, pp. 186-189 | `validation/gilbert_glenn95/` | circuit reproduced from the paper's Fig. 1; paper not redistributed |
+
+## Not included
+
+No foundry PDK, no confidential rule deck, no measured wafer data, no
+IBM-proprietary device models, no copyrighted PDFs. The `docs/*.pdf` pattern is
+gitignored on purpose.

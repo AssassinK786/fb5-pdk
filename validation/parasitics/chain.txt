@@ -1,0 +1,10 @@
+build_chain.py: wrote validation/parasitics/fb5_inv_chain.gds cells 35 top bbox (-3000,-1200;32100,31500)
+extracted routed chain: 10 interconnect capacitors, sum(C) 19.97 fF
+========================================================================================
+3-stage INVX1 chain, VDD 3.3 V, tt, 20 fF load; delay = in(rise) -> out(fall)
+view                              delay[ps]  per-stage[ps]  delta vs pre
+pre-layout (schematic)               210.77          70.26         +0.00
+post-layout (cell R/C)               312.57         104.19       +101.79
+post-layout (cells + routing C)      321.12         107.04       +110.35
+========================================================================================
+CHAIN: PASS

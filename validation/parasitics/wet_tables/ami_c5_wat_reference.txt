@@ -1,0 +1,67 @@
+# FP5 / AMI C5 WAT reference table  (FIRST-HAND, local)
+#
+# Source: /grid/fp5-pdk/tech/wire_rc.txt  ("MOSIS lot T89Y, median lot")
+#         /grid/fp5-pdk/fp5A/libs.tech/klayout/tech/fp5A_wire_rc.txt (same)
+#         /grid/fp5-pdk/passives/fp5_passives.lib (contact resistance)
+#         /grid/fp5-pdk/passives/passives_stats.txt (105-lot medians/sigma over
+#           the WAT CAPACITANCE PARAMETERS / PROCESS PARAMETERS rows)
+#
+# Provenance of the underlying reports (fp5-pdk/SOURCES.md, "Build-time data"):
+#   passives/extract_passives.py reads FP5_MOSIS_PARAMS, defaulting to
+#       home-dir mosis_cards/wayback_params
+#   file pattern: ami-c5*__*.txt   (105 distinct C5 runs, 'SCN05' reports)
+#   That archive is NOT on this machine; FB5's 20 IBM SIGE05 WET reports would
+#   be the 'ibm-sige*' siblings in the SAME archive.
+#
+# !! THIS IS AMI/onsemi C5 0.5 um, NOT IBM SiGe 5HP. !!
+# It is recorded here as (a) a first-hand example of the exact WAT
+# CAPACITANCE/CONTACT table layout, (b) validation of the AMI C5 baseline used
+# by qflow SCN3ME_SUBM.30.tech, and (c) the template for the 5HP table that is
+# still missing.  It must NOT be used as 5HP measured data.
+#
+# Units: sheet R ohm/sq; area cap aF/um^2; fringe/overlap cap aF/um;
+#        contact R ohm; ILD/geometry um.
+#
+# ---------------------------------------------------------------------------
+# PROCESS PARAMETERS (verbatim from fp5-pdk/tech/wire_rc.txt)
+# ---------------------------------------------------------------------------
+# layer    Rsh    Area_sub  Fringe_sub  min_width_um  C_per_um(fF/um)  R_per_um(ohm/um)
+metal1     0.09   28        52          0.9           0.129            0.100
+metal2     0.09   12        33          0.9           0.077            0.100
+metal3     0.05    8        26          1.5           0.064            0.033
+poly       22.5   86        -           0.6           -                -
+#
+# ---------------------------------------------------------------------------
+# CAPACITANCE PARAMETERS - inter-layer area + fringe (verbatim)
+# ---------------------------------------------------------------------------
+# M1 over poly  63 aF/um^2 ; M2 over M1  31 aF/um^2 ; M3 over M2  31 aF/um^2
+# fringe M1-poly  58 aF/um ; M2-M1  33 aF/um ; M3-M2  56 aF/um
+#
+# ---------------------------------------------------------------------------
+# CONTACT RESISTANCE (from fp5-pdk/passives/fp5_passives.lib resistor subckts)
+# ---------------------------------------------------------------------------
+# poly contact   15.7 ohm per end   (rpoly:  R = Rsh*l/w + 2*15.7/max(1,w/0.9))
+# poly2 contact  26.1 ohm per end   (rpoly2: R = Rsh*l/w + 2*26.1/max(1,w/0.9))
+# 105-lot WAT statistics (passives_stats.txt, column alignment in that file is
+# unreliable - treat as rough): Contact Resistance POLY median 60.9,
+# POLY2 median 16.8, MTL2 16.25, MTL3 25.8, UNITS 0.905.
+#
+# ---------------------------------------------------------------------------
+# IMPORTANT: WAT fringe != magic perimc
+# ---------------------------------------------------------------------------
+# magic SCN3ME_SUBM.30.tech encodes perimc (m1)=22.200 aF/lambda, which is
+#   22.200 / 0.30 = 74 aF/um, whereas the WAT Fringe (substrate) M1 is 52 aF/um.
+# Same for M2: magic 17.400/0.30 = 58 vs WAT 33; M3: 11.400/0.30 = 38 vs WAT 26.
+# magic folds both edges / sidewall coupling into one perimc coefficient, so it
+# is systematically larger than the single-sided WAT fringe.  fb5_wet.tsv's
+# ami_c5 column is in MAGIC-RULE units (so the generator can scale them), NOT
+# raw WAT units; this file records the raw WAT numbers separately.
+#
+# ---------------------------------------------------------------------------
+# WHAT IS STILL MISSING
+# ---------------------------------------------------------------------------
+# The IBM SIGE05 / 5HP equivalent of this table (20 lots).  Fetch the
+# 'ibm-sige*__*.txt' WAT extracts from home-dir mosis_cards/wayback_params (or
+# re-download the MOSIS SIGE05 parametric reports), compute the medians the
+# same way fp5-pdk/passives/extract_passives.py does, and fill the fringe_*
+# and contact_* rows of fb5_wet.tsv with status=MEASURED.

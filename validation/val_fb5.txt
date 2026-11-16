@@ -1,0 +1,8 @@
+HBT (VCE 1.8 V, peak-fT bias):
+HBT fb5npn_hp: Ic 1.025 mA beta 97.4 fT 46.67 GHz fMAX 63.94 GHz  (target beta ~100, fT 47-50 / 28 GHz, fmax 65 / ~50 GHz)
+HBT fb5npn_hb: Ic 0.538 mA beta 96.1 fT 28.20 GHz fMAX 47.68 GHz  (target beta ~100, fT 47-50 / 28 GHz, fmax 65 / ~50 GHz)
+CMOS (fb5 tt, L 0.5, 3.3 V): inv FO1 70 ps, NAND2 FO2 130 ps  (IBM 5HP table: 90 ps)
+ECL ring (11 stages, 280 mV swing, Iee 0.3 mA, EF 0.15 mA): 18.7 ps/gate  (IBM 5HP: 16 ps)
+ECL ring (11 stages, 280 mV swing, Iee 0.6 mA, EF 0.30 mA): 12.9 ps/gate  (IBM 5HP: 16 ps)
+ECL ring (11 stages, 280 mV swing, Iee 1.0 mA, EF 0.50 mA): 10.9 ps/gate  (IBM 5HP: 16 ps)
+ECL ring (11 stages, 280 mV swing, Iee 1.5 mA, EF 0.75 mA): 10.4 ps/gate  (IBM 5HP: 16 ps)

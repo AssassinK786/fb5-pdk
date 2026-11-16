@@ -1,0 +1,31 @@
+# FB5 LEF (logical layer) -> GDS (layer/datatype) reference map
+# GDS numbers are MOSIS SCMOS / SCN3ME_SUBM, see klayout/layers.txt and the
+# calma statements in validation/parasitics/SCN3ME_SUBM.30.5hp.tech. All datatypes 0.
+# Sheet R / area C below are IBM 5HP measured/derived values (see RC_SOURCES.md).
+#
+# This is a human-readable reference table, not a tool-specific stream-out file:
+# convert it to your tool's layer-map syntax when exporting LEF/DEF to GDS.
+#
+# LEF name        GDS    notes
+nwell             42/0   MASTERSLICE
+pwell             41/0   (not declared in LEF; MAGIC/magic tech only)
+nactive           43/0   active + nselect 45/0
+pactive           43/0   active + pselect 44/0
+poly              46/0   MASTERSLICE
+cc                47/0   poly contact cut
+cc                48/0   active/diffusion contact cut (LEF merges both into "cc")
+metal1            49/0   ROUTING, horizontal, R=0.08 ohm/sq, C=0.029 fF/um2
+via               50/0   CUT, metal1<->metal2
+metal2            51/0   ROUTING, vertical,   R=0.05 ohm/sq, C=0.014 fF/um2
+via2              61/0   CUT, metal2<->metal3
+metal3            62/0   ROUTING, horizontal, R=0.04 ohm/sq, C=0.0096 fF/um2
+poly2             56/0   (not declared in LEF; cap electrode / poly2 resistor)
+poly2_contact     55/0   (not declared in LEF)
+glass             52/0   (not declared in LEF; passivation opening)
+pbase             58/0   FB5 NPN base (not in LEF)
+mim_top           88/0   FB5 MIM top plate marker (not in LEF)
+# GDS text/label layers used by magic and KLayout LVS
+m1_label         109/0
+m2_label         110/0
+m3_label         111/0
+m1_label_alt      49/0

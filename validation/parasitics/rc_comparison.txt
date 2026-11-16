@@ -1,0 +1,14 @@
+Post-layout delay: AMI C5 generic R/C vs FB5 5HP R/C (measured + PROXY fringe/contact)
+3-stage chain, VDD 3.3 V, FB5 tt, 20 fF load; average of 3 stage delays
+AMI netlists are re-extracted on the fly from the same GDS with the
+original qflow SCN3ME_SUBM.30.tech (see RC_SOURCES.md).
+====================================================================================================
+cell         pre[ps]   post AMI C5[ps]   post 5HP[ps]   5HP-AMI[ps]   delta%
+INVX1          70.26            104.91         104.19         -0.72    -0.69
+INVX2          59.35             89.16          88.82         -0.34    -0.38
+INVX4          55.65             80.60          80.42         -0.18    -0.22
+INVX8          53.52             90.55          90.36         -0.19    -0.21
+NAND2X1       102.71            138.21         137.64         -0.57    -0.41
+NOR2X1        116.47            152.32         151.79         -0.53    -0.35
+====================================================================================================
+RC COMPARE: PASS

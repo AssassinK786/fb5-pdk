@@ -1,0 +1,15 @@
+fb5npn_hp (0.5x2.5 um, BVceo 3.3 V, fT target 47 GHz, published fmax 65 GHz): TF 2.8p, RB 124 (RBM 25); Ic 0.30mA beta 104 fT 37.0G, Ic 0.50mA beta 102 fT 42.7G, Ic 0.70mA beta 100 fT 45.3G, Ic 1.00mA beta 98 fT 46.6G, Ic 1.50mA beta 94 fT 45.6G, Ic 3.00mA beta 84 fT 35.0G, Ic 6.00mA beta 69 fT 19.0G
+  peak fT 46.64 GHz @ Ic 1.000 mA (beta 98, Vb 0.869); EXTRACTED fMAX (Mason U=1) 63.92 GHz
+fb5npn_hb (0.5x2.5 um, BVceo 5.5 V, fT target 28 GHz, assumed fmax 50 GHz): TF 4.03p, RB 96 (RBM 19); Ic 0.30mA beta 101 fT 26.7G, Ic 0.50mA beta 97 fT 28.2G, Ic 0.70mA beta 93 fT 27.6G, Ic 1.00mA beta 89 fT 25.0G, Ic 1.50mA beta 82 fT 19.8G, Ic 3.00mA beta 67 fT 10.4G, Ic 6.00mA beta 48 fT 5.4G
+  peak fT 28.21 GHz @ Ic 0.500 mA (beta 97, Vb 0.848); EXTRACTED fMAX (Mason U=1) 47.68 GHz
+
+wrote fb5_hbt.lib:
+* FB5 SiGe HBT models (research PDK): Gummel-Poon fitted to published IBM SiGe 5HP figures (fit_hbt.py).
+* Emitter 0.5 x 2.5 um. hp RB=124 ohm = measured Rb@100uA (Bacon, Microwave Journal 2002);
+* hb RB=96 ohm is an ESTIMATE (no published Rb for the high-breakdown NPN).
+* fT fitted with TF; fMAX is EXTRACTED from Y-parameters (Mason U=1), see fit_hbt.txt / val_fmax.txt.
+* BVceo (3.3 V hp / 5.5 V hb) is NOT modelled by Gummel-Poon: keep VCE below it; use the VBIC cards.
+.MODEL fb5npn_hp NPN (IS=5e-18 BF=145 NF=1.0 VAF=60 IKF=18m ISE=4e-17 NE=1.6 BR=5 VAR=3 IKR=1m RB=124 IRB=0.4m RBM=25 RE=6 RC=35 CJE=9f VJE=0.9 MJE=0.3 CJC=5f VJC=0.6 MJC=0.3 XCJC=0.5 CJS=8f VJS=0.6 MJS=0.3 TF=2.8p XTF=6 VTF=2.0 ITF=20m TR=50p EG=1.11 XTI=3 XTB=1.5)
+.MODEL fb5npn_hb NPN (IS=5e-18 BF=145 NF=1.0 VAF=90 IKF=8m ISE=4e-17 NE=1.6 BR=5 VAR=3 IKR=1m RB=96 IRB=0.4m RBM=19 RE=6 RC=120 CJE=9f VJE=0.9 MJE=0.3 CJC=3.5f VJC=0.6 MJC=0.3 XCJC=0.5 CJS=8f VJS=0.6 MJS=0.3 TF=4.03p XTF=6 VTF=2.0 ITF=8m TR=50p EG=1.11 XTI=3 XTB=1.5)
+
+Published targets [1][2]: hp fT 47-50 GHz, fmax 65 GHz; hb fT 28-29 GHz. Measured here: hp 46.6/63.9, hb 28.2/47.7 GHz.
